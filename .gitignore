@@ -99,3 +99,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# My User/Password Info
+UserInfo.txt

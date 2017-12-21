@@ -10,21 +10,22 @@ import pandas as pd
 
 #User Inputted Values
 #Input Login Values
-cardNum = 'CardNumberAsString'
-pin = 'PinAsString'
+UserInputs = pd.read_csv("UserInfo.txt", header=None)
+cardNum = UserInputs[0][0]
+pin = UserInputs[0][1]
 #Working Directory for Saving Location
-savedir = "C:\WhereISaveData"
+savedir = UserInputs[0][2]
 os.chdir(savedir)
 #Select a File Name to Save Output
-outFile = 'FileName.csv'  
+outFile = UserInputs[0][3]  
 
 #Start Driver
 driver = webdriver.Firefox()
 
 #Get to Starting URL
-url = "http://www.watertownlib.org"
+url = UserInputs[0][4]
 driver.get(url)
-assert "Watertown Free Public Library" in driver.title
+assert UserInputs[0][5] in driver.title
 
 #Navigate to Account Login Page
 accountButton = driver.find_element_by_css_selector("a[href*='myaccount']")
@@ -92,3 +93,6 @@ for pg in range(numPages):
 labels = ['Title', 'Author', 'Date', 'Details']
 df = pd.DataFrame.from_records(bookHistory, columns=labels);
 df.to_csv(outFile)
+
+#Close Webdriver
+driver.quit()

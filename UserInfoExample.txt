@@ -1,0 +1,6 @@
+"LibraryUserName"
+"LibraryPIN"
+"C:\LocationISaveThings"
+"FileNameToSave.csv"
+"http://www.mylibraryaddress.org"
+"Confirmed Title of Website (string from driver.title)"
