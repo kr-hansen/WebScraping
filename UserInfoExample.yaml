@@ -1,0 +1,7 @@
+#Example YAML file for saving Parameters for Scripts
+Inputs:
+  website: https://www.mywebsiteurl.com
+  otherParameters: Provided here
+
+Outputs:
+  outputDir: /path/to/output/dir
